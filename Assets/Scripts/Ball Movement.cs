@@ -10,11 +10,9 @@ public class BallMovement : MonoBehaviour
 
     public bool player1Start = true;
 
-
     private int hitCounter = 0;
 
     private Rigidbody2D rb;
-
 
     void Start()
     {
@@ -26,7 +24,7 @@ public class BallMovement : MonoBehaviour
     public void RestartBall()
     {
         rb.velocity = new Vector2(0, 0);
-        transform.position = new Vector2(0,0);
+        transform.position = new Vector2(0, 0);
     }
 
     public IEnumerator Launch()
@@ -37,7 +35,7 @@ public class BallMovement : MonoBehaviour
         yield return new WaitForSeconds(1);
 
 
-        if(player1Start == true)
+        if (player1Start == true)
         {
             MoveBall(new Vector2(-1, 0));
 
@@ -49,8 +47,7 @@ public class BallMovement : MonoBehaviour
 
     }
 
-
-    public void MoveBall (Vector2 direction)
+    public void MoveBall(Vector2 direction)
     {
         direction = direction.normalized;
 
@@ -59,12 +56,13 @@ public class BallMovement : MonoBehaviour
         rb.velocity = direction * ballSpeed;
 
     }
+
     public void IncreaseHitCounter()
     {
-        if(hitCounter * extraSpeed < maxExtraSpeed)
+        if (hitCounter * extraSpeed < maxExtraSpeed)
         {
             hitCounter++;
         }
     }
-   
+
 }
