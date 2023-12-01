@@ -6,7 +6,8 @@ public class EasyAI : Racket
 
     void Awake()
     {
-        enabled = GameManager.gameMode == GameMode.EasyAI;
+        if (GameManager.gameMode == GameMode.EasyAI)
+            enabled = true;
     }
 
     void Update()

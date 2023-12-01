@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject prefab;
 
-    public static GameMode gameMode = GameMode.EasyAI;
+    public static GameMode gameMode = GameMode.LocalPvP;
 
     private static GameManager Instance = null;
 
@@ -21,29 +21,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    public void MoveToScene(int sceneID)
-    {
-        SceneManager.LoadScene(sceneID);
-    }
-
-    public void StartGame(int gameMode)
-    {
-        GameManager.gameMode = (GameMode)gameMode;
-        SceneManager.LoadScene(1);
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
-
-    }
 }
 
 public enum GameMode
 {
     LocalPvP,
-    OnlinePvP,
+    HostOnlinePvP,
+    JoinOnlinePvP,
     EasyAI,
     MediumAI,
     HardAI,

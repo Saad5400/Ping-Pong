@@ -13,11 +13,11 @@ public class BallBounce : MonoBehaviour
     private void Bounce(Collision2D collision)
     {
         Vector3 ballPosition = transform.position;
-        Vector3 racketPosition =  collision.transform.position;
+        Vector3 racketPosition = collision.transform.position;
         float racketHeight = collision.collider.bounds.size.y;
 
         float positionX;
-        if(collision.gameObject.name == "Player 1")
+        if (collision.gameObject.name == "Player 1")
         {
             positionX = 1;
         }
@@ -28,16 +28,16 @@ public class BallBounce : MonoBehaviour
         float positionY = (ballPosition.y - racketPosition.y) / racketHeight;
 
         ballMovement.IncreaseHitCounter();
-        ballMovement.MoveBall(new Vector2(positionX, positionY));
+        ballMovement.MoveBall(new Vector2(positionX, positionY * 2f));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "Player 1" || collision.gameObject.name == "Player 2")
+        if (collision.gameObject.name == "Player 1" || collision.gameObject.name == "Player 2")
         {
             Bounce(collision);
         }
-        else if(collision.gameObject.name == "Right Border")
+        else if (collision.gameObject.name == "Right Border")
         {
             scoreManager.Player1Goal();
             ballMovement.player1Start = false;

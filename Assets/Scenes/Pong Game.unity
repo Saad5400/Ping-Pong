@@ -476,6 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 305ffc295fe73ed46b3291b03a5cc698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldCamera: {fileID: 761824407}
   racketSpeed: 15
 --- !u!50 &416825254
 Rigidbody2D:
@@ -1324,6 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dddcdc48cf59d344195893b08b86884b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldCamera: {fileID: 761824407}
   racketSpeed: 15
 --- !u!114 &1230910491
 MonoBehaviour:
@@ -1337,6 +1339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a5ff503eedd5845b75a7c6dd060bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldCamera: {fileID: 0}
   racketSpeed: 5
   ball: {fileID: 1515298291}
 --- !u!114 &1230910492
@@ -1351,8 +1354,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df62d78078531044381366c72280036c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldCamera: {fileID: 0}
   racketSpeed: 15
-  ball: {fileID: 0}
+  ball: {fileID: 1515298291}
 --- !u!114 &1230910493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1365,8 +1369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6576a1e6067c8f4a8ba6d929267bf20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldCamera: {fileID: 0}
   racketSpeed: 10
-  ball: {fileID: 0}
+  ball: {fileID: 1515298291}
 --- !u!1 &1284997041
 GameObject:
   m_ObjectHideFlags: 0

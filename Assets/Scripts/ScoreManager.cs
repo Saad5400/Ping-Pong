@@ -33,6 +33,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (player1Score == scoreToReach || player2Score == scoreToReach)
         {
+            GameManager.gameMode = GameMode.LocalPvP;
             SceneManager.LoadScene(0);
         }
     }
