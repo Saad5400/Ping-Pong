@@ -37,12 +37,12 @@ public class BallMovement : MonoBehaviour
 
         if (player1Start == true)
         {
-            MoveBall(new Vector2(-1, 0));
+            MoveBall(new Vector2(-1, Random.Range(-0.5f, 0.5f)).normalized);
 
         }
         else
         {
-            MoveBall(new Vector2(1, 0));
+            MoveBall(new Vector2(1, Random.Range(-0.5f, 0.5f)).normalized);
         }
 
     }
@@ -54,7 +54,6 @@ public class BallMovement : MonoBehaviour
         float ballSpeed = startSpeed + hitCounter * extraSpeed;
 
         rb.velocity = direction * ballSpeed;
-
     }
 
     public void IncreaseHitCounter()
