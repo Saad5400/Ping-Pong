@@ -34,7 +34,7 @@ public class ScoreManager : MonoBehaviour
         CheckScore();
     }
 
-    private IEnumerator RestartGame()
+    private IEnumerator GameEndEffect()
     {
         Bloom bloom;
         postProcessVolume.profile.TryGetSettings(out bloom);
@@ -58,7 +58,7 @@ public class ScoreManager : MonoBehaviour
             textMeshPro.color = player1Score == scoreToReach ? new Color32(31, 81, 255, 255) : new Color32(62, 255, 0, 255);
             textMeshPro.text = player1Score == scoreToReach ? "BLUE WINS!" : "GREEN WINS!";
             Instantiate(endSoundEffect);
-            StartCoroutine(RestartGame());
+            StartCoroutine(GameEndEffect());
         }
     }
 }
