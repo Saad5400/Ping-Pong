@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BallBounce : MonoBehaviour
 {
-    public GameObject hitSFX;
+    public GameObject hitSFX, leftBorder, rightBorder;
 
     public BallMovement ballMovement;
     public ScoreManager scoreManager;
@@ -31,23 +31,50 @@ public class BallBounce : MonoBehaviour
         ballMovement.MoveBall(new Vector2(positionX, positionY * 2f));
     }
 
+    void FixedUpdate()
+    {
+        if (transform.position.x < leftBorder.transform.position.x)
+        {
+            OnLeftBorderHit();
+        }
+        else if (transform.position.x > rightBorder.transform.position.x)
+        {
+            OnRightBorderHit();
+        }
+    }
+
+    private void OnRightBorderHit()
+    {
+        scoreManager.Player1Goal();
+        ballMovement.player1Start = false;
+        StartCoroutine(ballMovement.Launch());
+    }
+
+    private void OnLeftBorderHit()
+    {
+        scoreManager.Player2Goal();
+        ballMovement.player1Start = true;
+        StartCoroutine(ballMovement.Launch());
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (scoreManager.isGameOver)
+        {
+            return;
+        }
+        
         if (collision.gameObject.name == "Player 1" || collision.gameObject.name == "Player 2")
         {
             Bounce(collision);
         }
         else if (collision.gameObject.name == "Right Border")
         {
-            scoreManager.Player1Goal();
-            ballMovement.player1Start = false;
-            StartCoroutine(ballMovement.Launch());
+            OnRightBorderHit();
         }
         else if (collision.gameObject.name == "Left Border")
         {
-            scoreManager.Player2Goal();
-            ballMovement.player1Start = true;
-            StartCoroutine(ballMovement.Launch());
+            OnLeftBorderHit();
         }
         Instantiate(hitSFX, transform.position, transform.rotation);
     }

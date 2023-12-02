@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class DestroySoundEffect : MonoBehaviour
 {
-   
+    public float delay = 1f;
     void Start()
     {
-        Destroy(gameObject , 1);
+        DontDestroyOnLoad(gameObject);
+        Destroy(gameObject, delay);
     }
-
-   
 }
